@@ -44,6 +44,7 @@ type Movie struct {
 	Tagline           string
 	Title             string
 	Video             bool
+	MyRating int `json:"my_rating" bson:"my_rating" `
 	VoteAverage       float32                 `json:"vote_average"`
 	VoteCount         uint32                  `json:"vote_count"`
 	AlternativeTitles *MovieAlternativeTitles `json:"alternative_titles,omitempty"`
@@ -76,6 +77,7 @@ type MovieShort struct {
 	Video         bool    `json:"video"`
 	VoteAverage   float32 `json:"vote_average"`
 	VoteCount     uint32  `json:"vote_count"`
+	Rating float32 `json:"rating" bson:"rating"`
 }
 
 // MovieDatedResults struct
@@ -254,7 +256,7 @@ type MovieLists struct {
 	Results []struct {
 		Description   string
 		FavoriteCount int `json:"favorite_count"`
-		ID            string
+		ID            int
 		ItemCount     int    `json:"item_count"`
 		Iso639_1      string `json:"iso_639_1"`
 		Name          string
